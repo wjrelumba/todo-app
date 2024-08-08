@@ -186,15 +186,15 @@ export default function ToDo({setPreviewMode, setAddMode, setDelMode}) {
       {tempTasks && (
         <div className='d-flex flex-column h-100 overflow-auto'>
           {tempTasks.map((task) => (
-            <div className='d-flex flex-column w-75 h-auto rounded-1 m-1 bg-white p-2' key={task.taskID}>
+            <div className='d-flex flex-column w-75 h-auto rounded-1 m-1 lexPurple p-2' key={task.taskID}>
               {task.isDone && (
                 <>
-                <h1 className='fs-3 text-decoration-line-through'>{task.taskName}</h1>
+                <h1 className='fs-3 text-decoration-line-through text-white'>{task.taskName}</h1>
                 </>
               )}
               {!task.isDone && (
                 <>
-                <h1 className='fs-3'>{task.taskName}</h1>
+                <h1 className='fs-3 text-white'>{task.taskName}</h1>
                 </>
               )}
             </div>
