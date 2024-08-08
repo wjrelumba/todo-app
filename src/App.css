@@ -1,15 +1,38 @@
 .lexPurple {
-    background-color: #ba35cc;
+    background-color: #6a3471;
 }
 
 .lexOrangePurple {
-    background-color: #d04c66;
+    background: linear-gradient(to bottom right, #8d4597, #f9512c);
 }
 
 .lexOrange {
-    background-color: #FF5733;
+    background-color: #f9512c;
+}
+
+.edit-button {
+    width: 6rem;
+    margin-right: 0.2rem;
+}
+
+.lexOrange:hover {
+    background-color: #c13d20;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.lexOrangeDone {
+    background-color: #ff7354;
 }
 
 .lexRed {
     background-color: #ff8989;
+}
+
+.lexGray {
+    background-color: #3e3e3e;
+}
+
+.text-purple {
+    color: #862693;
 }

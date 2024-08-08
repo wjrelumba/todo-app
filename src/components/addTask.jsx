@@ -98,13 +98,13 @@ export default function AddTask() {
   return (
     <>
         <div className='d-flex vw-100 vh-100 p-3'>
-            <div className='d-flex flex-column align-items-center w-100 h-100'>
-                <h1>Add Task</h1>
-                <div className='d-flex flex-column bg-white w-50 h-25 p-2 rounded-2'>
-                  <label className='fs-2' htmlFor="title">Task Name:</label>
-                  <input className='bg-white rounded-1 text-black p-2' onChange={inputHandler} type="text" name="taskName" id="" />
+            <div className='d-flex flex-column align-items-center w-100'>
+                <h1 className='fs-1 text-white'>Add Task</h1>
+                <div className='d-flex flex-column lexPurple w-50 h-25 p-2 rounded-2'>
+                  <label className='fs-2 text-white' htmlFor="title">Task Name:</label>
+                  <input className='lexGray rounded-1 text-white fs-4 border-0 p-2' placeholder='Task Name...' onChange={inputHandler} type="text" name="taskName" id="" />
+                  <button className='lexOrange border-1 border-black w-100 rounded-1' onClick={submitBtn}>Create Task</button>
                 </div>
-                <button className='lexOrangePurple border-1 border-black w-50 m-2 text-black rounded-1' onClick={submitBtn}>Create Task</button>
             </div>
         </div>
     </>
