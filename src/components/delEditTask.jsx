@@ -100,7 +100,7 @@ export default function DelEditTask() {
                             <div className='w-100 d-flex flex-column align-items-center m-1'>
                                     <div className='d-flex flex-column w-100'>
                                         <label className='fs-2 text-white' htmlFor="name">Name:</label>
-                                        <input onChange={newNameFunc} type="text" placeholder={currentTask.taskName}/>
+                                        <input className='lexGray rounded-1 text-white fs-4 border-0 p-2' onChange={newNameFunc} type="text" placeholder={currentTask.taskName}/>
                                     </div>
                                 <button onClick={editTaskBtn} className='lexOrange border-1 border-black w-50 m-2 text-black rounded-1'>Edit Task</button>
                             </div>
