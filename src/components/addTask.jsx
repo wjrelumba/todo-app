@@ -2,12 +2,20 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function AddTask() {
+export default function AddTask({setPreviewMode, setAddMode, setDelMode}) {
   const [taskName, setTaskName] = useState(null);
 
   function generateRandomID() {
     return Math.random().toString(36).substr(2, 9);
   };
+
+  // Switch to delete or edit mode
+  const switchToPrevMode = (targetId) => {
+    localStorage.setItem('currentId', targetId)
+    setPreviewMode(true);
+    setAddMode(false);
+    setDelMode(false);
+  }
 
   const submitBtn = () => {
     if(taskName && taskName.length > 0){
@@ -26,6 +34,7 @@ export default function AddTask() {
         var hour = dateToday.getHours();
         const minute = String(dateToday.getMinutes()).padStart(2,'0');
         var dateString;
+        console.log(dateString);
         console.log(hour);
         if(hour > 12){
           console.log('run');
@@ -34,6 +43,9 @@ export default function AddTask() {
         }
         else if(hour < 12){
           dateString = `${month}/${day}/${year} - ${hour}:${minute} AM`
+        }
+        else if(hour == 12){
+          dateString = `${month}/${day}/${year} - ${hour}:${minute} PM`
         };
     
         const randomId = generateRandomID();
@@ -46,7 +58,7 @@ export default function AddTask() {
         };
         tasksArray.push(taskObject)
         localStorage.setItem('tasks', JSON.stringify(tasksArray));
-        window.location.reload();
+        switchToPrevMode(); 
       }
       if(!localStorage.getItem('tasks')){
         const dateToday = new Date();
@@ -56,12 +68,17 @@ export default function AddTask() {
         var hour = dateToday.getHours();
         const minute = String(dateToday.getMinutes()).padStart(2,'0');
         var dateString;
+        console.log(dateString);
         if(hour > 12){
+          console.log('run');
           hour -= 12;
           dateString = `${month}/${day}/${year} - ${hour}:${minute} PM`
         }
         else if(hour < 12){
           dateString = `${month}/${day}/${year} - ${hour}:${minute} AM`
+        }
+        else if(hour == 12){
+          dateString = `${month}/${day}/${year} - ${hour}:${minute} PM`
         };
         
         console.log(dateString);
@@ -76,7 +93,8 @@ export default function AddTask() {
         }];
   
         localStorage.setItem('tasks', JSON.stringify(taskObject));
-        window.location.reload();
+        toast.success(`Task Created: ${taskName}`)
+        switchToPrevMode();
       };
     }
     else{

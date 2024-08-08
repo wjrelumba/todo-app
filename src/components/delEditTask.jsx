@@ -8,11 +8,6 @@ export default function DelEditTask() {
     const [currentTask, setCurrentTask] = useState(null);
     const [newName, setNewName] = useState(null);
 
-    // Generate an ID for each task
-    function generateRandomID() {
-        return Math.random().toString(36).substr(2, 9);
-    };
-
     // Find the current task to be edited
     const getCurrentTask = (targetId, storageObject) => {
         // Define the unique ID you want to target
@@ -60,11 +55,15 @@ export default function DelEditTask() {
             const minute = String(dateToday.getMinutes()).padStart(2,'0');
             var dateString;
             if(hour > 12){
+            console.log('run');
             hour -= 12;
-            dateString = `${month}/${day}/${year} - Edited: ${hour}:${minute} PM`
+            dateString = `Edited: ${month}/${day}/${year} - ${hour}:${minute} PM`
             }
             else if(hour < 12){
-            dateString = `${month}/${day}/${year} - Edited: ${hour}:${minute} AM`
+            dateString = `Edited: ${month}/${day}/${year} - ${hour}:${minute} AM`
+            }
+            else if(hour == 12){
+            dateString = `Edited: ${month}/${day}/${year} - ${hour}:${minute} PM`
             };
 
             console.log(targetObject);

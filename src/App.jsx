@@ -68,7 +68,7 @@ function App() {
               <div className='d-flex w-100 h-100 justify-content-center overflow-hidden'>
                 <div className='d-flex flex-column w-100 h-100'>
                   <div className='d-flex w-100 h-100 rounded-2 overflow-auto'>
-                    <AddTask/>
+                    <AddTask setPreviewMode={setPreviewMode} setAddMode={setAddMode} setDelMode={setDelMode} />
                   </div>
                 </div>
               </div>
